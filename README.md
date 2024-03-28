@@ -1,2 +1,2 @@
 # LearningJava
-Documents the java practice codes
+Documents my java practice codes
