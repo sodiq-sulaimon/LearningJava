@@ -9,7 +9,9 @@ public class FahrenheitToCelsius{
         System.out.print("Enter your city and the day of the week: ");
         String day = input.nextLine();
         double celsius = (5.0/9) * (fahrenheit - 32);
-        System.out.println(day + " Fahrenheit: " + fahrenheit);
-        System.out.println(day + " Celsius: " + celsius);
+        String cText = "Celsius";
+        System.out.printf("%s Fahrenheit: %d\n", day, fahrenheit) ;
+//         System.out.println(day + " Celsius: " + celsius);
+        System.out.printf("%s %-10s: %.1f\n", day,cText, celsius); //%-11s is used to specify the width of the text. -ve sign means left justified
     }
 }
