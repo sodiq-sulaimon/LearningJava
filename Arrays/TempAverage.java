@@ -14,8 +14,8 @@ public class TempAverage{
             i++;
             }
         double highsSum = 0;
-        for (i = 0; i < weekHighs.length; i++){
-            highsSum += weekHighs[i];
+        for (double dayHigh : weekHighs){ //for-each loop
+            highsSum += dayHigh;
         }
         double highsAvg = highsSum / weekHighs.length;
         System.out.printf("Average high temperature for the week: %.1f\n ", highsAvg);
