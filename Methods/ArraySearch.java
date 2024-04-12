@@ -2,18 +2,18 @@ public class ArraySearch {
     public static void main(String args[]) {
         String[] concepts = {"abstraction", "polymorphism", "inheritance", "encapsulation"};
 
-        String result1 = searchStringArray("polymorphism", concepts);
-        System.out.println(result1);
+        System.out.println(searchStringArray("polymorphism", concepts));
 
-        String result2 = searchStringArray("encapsulation", concepts);
-        System.out.println(result2);
+        System.out.println(searchStringArray("encapsulation", concepts));
+
+        System.out.println(searchStringArray("programming", concepts));
     }
 
-    public static String searchStringArray(String target, String[] array){
-        String result = "not found";
+    public static boolean searchStringArray(String target, String[] array){
+        boolean result = false;
         for (String element : array) {
             if ((element != null) && (element.equals(target))){
-                result = "found";
+                result = true;
                 break;
             }
         }
