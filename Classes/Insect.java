@@ -6,6 +6,8 @@ public class Insect{
     private int y;
 
     // static constants/variables
+    public static int DEFAULT_X = 0;
+    public static int DEFAULT_Y = 0;
     public static final double DIST_WEIGHT_LOSS_FACTOR = 0.0001;
     private static int population = 0;
     private static final String[] FACTS= {
@@ -16,14 +18,57 @@ public class Insect{
     };
 
     // constructor
-    public Insect(double initWeight, int initX, int initY){
-        weight = initWeight;
-        x = initX;
-        y = initY;
+        public Insect(double weight, int x, int y){
+        this.weight = weight;
+        this.x = x;
+        this.y = y;
         population++;
     }
 
-    // methods
+    // chaining constructor
+    public Insect(double weight){
+        this(weight, DEFAULT_X, DEFAULT_Y);
+    }
+
+    // accessors (getter) methods
+    public double getWeight(){
+        return weight;
+    }
+
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
+    }
+
+    public static int getPopulation(){
+        return population;
+    }
+
+    // mutator (setter) methods
+    public void setX(int x){
+        if (isLegalX(x)){
+            this.x = x;
+        }
+    }
+
+    public void setY(int y){
+        if (isLegalY(y)){
+            this.y = y;
+        }
+    }
+
+     // methods
+    public static boolean isLegalX(int newX){
+        return (newX >= 0 ? true : false);
+    }
+
+    public static boolean isLegalY(int newY){
+        return (newY >= 0 ? true : false);
+    }
+
     public void eat(double amount){
         System.out.println("Nibble Nibble");
         weight = weight + amount;
@@ -50,6 +95,10 @@ public class Insect{
         return FACTS[index];
     }
 
+    public String toString(){
+        return "weight: " + weight + ", x: " + x + ", y: " + y;
+    }
+
     // test method
     public static void main(String[] args){
         Insect bug1 = new Insect(4, -20, 5);
@@ -61,6 +110,7 @@ public class Insect{
         bug1.eat(2.1);
         System.out.println("Population: " + population);
         System.out.println(Insect.produceRandomFact());
+
     }
 }
 
