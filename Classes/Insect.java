@@ -18,7 +18,7 @@ public class Insect{
     };
 
     // constructor
-        public Insect(double weight, int x, int y){
+    public Insect(double weight, int x, int y){
         this.weight = weight;
         this.x = x;
         this.y = y;
