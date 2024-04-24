@@ -3,7 +3,7 @@ public class Frog {
     private int age;
     private double tongueSpeed;
     private boolean isFroglet;
-    private static String species = "Rare Pepe";
+    public static String species = "Rare Pepe";
 
     public static final int DEFAULT_AGE = 5;
     public static final double DEFAULT_TONGUE_SPEED = 5.0;
@@ -29,8 +29,11 @@ public class Frog {
         if (age <= 12) {
             tongueSpeed += numOfMonths;
         }
-        else if ((age >= 30) && (tongueSpeed >= 5)) {
+        else if (age >= 30) {
             tongueSpeed -= (age - 30);
+            if (tongueSpeed < 5.0) {
+                tongueSpeed = 5.0;
+            }
         }
 
         if ((age > 1 ) && (age < 7)) {
