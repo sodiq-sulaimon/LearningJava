@@ -5,8 +5,8 @@ public class Fly{
     private double speed;
 
     // static constants
-    final static double DEFAULT_MASS = 5.0;
-    final static double DEFAULT_SPEED = 10.0;
+    public static final double DEFAULT_MASS = 5.0;
+    public static final double DEFAULT_SPEED = 10.0;
 
     // constructors
     public Fly(double mass, double speed) {
@@ -32,7 +32,7 @@ public class Fly{
     }
 
     public void setMass(double newMass) {
-        if (newMass > 0){
+        if (newMass >= 0){
             this.mass = newMass;
         }
     }
@@ -52,12 +52,12 @@ public class Fly{
     }
 
     public void grow(int addedMass) {
-        this.mass = mass + addedMass;
+        mass = mass + addedMass;
         if (mass < 20) {
-            this.speed = speed +  addedMass;
+            speed = speed +  addedMass;
         }
         else if (mass >= 20){
-            this.speed = speed - (0.5 * (mass - 20));
+            speed = speed - (0.5 * (mass - 20));
         }
     }
 
