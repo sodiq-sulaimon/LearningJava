@@ -18,9 +18,11 @@ public class SelectionSort {
                     minIndex = currentIndex;
                 }
             }
-            nextSmallest = arr[minIndex];
-            arr[minIndex] = arr[unSortedStart];
-            arr[unSortedStart] = nextSmallest;
+            if (minIndex != unSortedStart) {
+                nextSmallest = arr[minIndex];
+                arr[minIndex] = arr[unSortedStart];
+                arr[unSortedStart] = nextSmallest;
+                }
         }
     }
 }
