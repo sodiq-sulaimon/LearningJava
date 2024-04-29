@@ -58,7 +58,7 @@ public abstract class Player implements Comparable<Player> {
     @Override
     public int compareTo(Player p) {
         // YOUR CODE HERE
-        return susLevel - p.getSusLevel();
+        return this.susLevel - p.getSusLevel();
     }
 
     /**
