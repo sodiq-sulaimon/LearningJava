@@ -15,6 +15,7 @@ public class RedAstronaut extends Player implements Impostor {
         this(name, DEFAULT_SUSLEVEL, DEFAULT_SKILL);
     }
 
+    @Override
     public void emergencyMeeting() {
         if (!super.isFrozen()) {
             Player[] players = super.getPlayers();
@@ -36,6 +37,7 @@ public class RedAstronaut extends Player implements Impostor {
         super.gameOver();
     }
 
+    @Override
     public void freeze(Player p) {
         if (!isFrozen() || !(p instanceof Impostor) || !p.isFrozen()) {
             if (getSusLevel() < p.getSusLevel()){
@@ -47,6 +49,7 @@ public class RedAstronaut extends Player implements Impostor {
         super.gameOver();
     }
 
+    @Override
     public void sabotage(Player p) {
         if (!isFrozen() || !(p instanceof Impostor) || !p.isFrozen()) {
             if (getSusLevel() < 20){
@@ -56,6 +59,8 @@ public class RedAstronaut extends Player implements Impostor {
                 p.setSusLevel((int)(getSusLevel() * 1.25));
         }
     }
+
+    @Override
     public boolean equals(Object o) {
         if(o instanceof RedAstronaut){
             RedAstronaut r = (RedAstronaut) o;
