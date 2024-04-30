@@ -28,25 +28,56 @@ public class RedAstronaut extends Player implements Impostor {
                 }
             }
             for (Player player : players) {
-                if (!getName().equals(player.getName()) && maxSusLevelCount == 1) {
+                if (!super.getName().equals(player.getName()) && maxSusLevelCount == 1) {
                     player.setFrozen(true);
                 }
-                else
-                    return;
             }
         }
         super.gameOver();
     }
 
-    public void sabotage(Player p) {
-        return;
-    }
-
     public void freeze(Player p) {
-        return;
+        if (!isFrozen() || !(p instanceof Impostor) || !p.isFrozen()) {
+            if (getSusLevel() < p.getSusLevel()){
+                p.setFrozen(true);
+            }
+            else
+                setSusLevel(getSusLevel() * 2);
+        }
+        super.gameOver();
     }
 
+    public void sabotage(Player p) {
+        if (!isFrozen() || !(p instanceof Impostor) || !p.isFrozen()) {
+            if (getSusLevel() < 20){
+                p.setSusLevel((int)(getSusLevel() * 1.5));
+            }
+            else
+                p.setSusLevel((int)(getSusLevel() * 1.25));
+        }
+    }
     public boolean equals(Object o) {
+        if(o instanceof RedAstronaut){
+            RedAstronaut r = (RedAstronaut) o;
+        return (getName().equals(r.getName()) && isFrozen() == r.isFrozen()
+            && getSusLevel() == r.getSusLevel() && getSkill().equals(r.getSkill()));
+        }
         return false;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + "I am an " + getSkill() + " skill player!\n";
+    }
+
+    public String getSkill() {
+        return this.skill;
+    }
+
+    public void setSkill(String skill) {
+        if (skill == "experienced" || skill == "inexperienced" || skill == "expert") {
+            this.skill = skill;
+        }
+    }
+
 }
