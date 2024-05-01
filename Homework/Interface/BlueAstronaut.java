@@ -41,8 +41,8 @@ public class BlueAstronaut extends Player implements Crewmate {
     }
 
     @Override
-    public void completeTask(){
-        if (!super.isFrozen()) {
+    public void completeTask() {
+        if (!isFrozen()) {
             if (getTaskSpeed() > 20) {
                 setNumTasks(getNumTasks() - 2);
             }
@@ -54,7 +54,7 @@ public class BlueAstronaut extends Player implements Crewmate {
         }
         if (getNumTasks() == 0) {
             System.out.println("I have completed all my tasks");
-            super.setSusLevel((int)(getSusLevel() * 0.5));
+            setSusLevel((int)(getSusLevel() * 0.5));
         }
     }
 

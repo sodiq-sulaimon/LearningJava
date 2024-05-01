@@ -39,7 +39,7 @@ public class RedAstronaut extends Player implements Impostor {
 
     @Override
     public void freeze(Player p) {
-        if (!isFrozen() || !(p instanceof Impostor) || !p.isFrozen()) {
+        if (!isFrozen() && !(p instanceof Impostor) && !p.isFrozen()) {
             if (getSusLevel() < p.getSusLevel()){
                 p.setFrozen(true);
             }
@@ -51,12 +51,12 @@ public class RedAstronaut extends Player implements Impostor {
 
     @Override
     public void sabotage(Player p) {
-        if (!isFrozen() || !(p instanceof Impostor) || !p.isFrozen()) {
-            if (getSusLevel() < 20){
-                p.setSusLevel((int)(getSusLevel() * 1.5));
+        if (!isFrozen() && !(p instanceof Impostor) && !p.isFrozen()) {
+            if (p.getSusLevel() < 20) {
+                p.setSusLevel((int)(p.getSusLevel() * 1.5));
             }
             else
-                p.setSusLevel((int)(getSusLevel() * 1.25));
+                p.setSusLevel((int)(p.getSusLevel() * 1.25));
         }
     }
 
