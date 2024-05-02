@@ -34,6 +34,11 @@ public class Wolf extends Canine implements Groomable, Comparable<Wolf> {
         return ("Rank: " + rank + ", Size: " + size + "\n");
     }
 
+    @Override
+    public void pay() {
+        System.out.println("Grrrr! Warning, don’t try and chase me for payment. I'm a wolf. Run Run Run!");
+    }
+
     public static void main(String[] args){
         Wolf alpha = new Wolf(18.2, 1);
         Wolf sane = new Wolf(19.5, 3);

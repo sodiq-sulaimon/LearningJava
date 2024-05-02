@@ -7,7 +7,9 @@ public class GroomEverything {
             new Car("Yuhina", "spark", 2024)
         };
         for (Groomable g : groomer) { //groom everything
+            System.out.println("Tip: " + Groomable.calculateTip(34.99, 20));
             g.groom();
+            g.pay();
         }
     }
 }
