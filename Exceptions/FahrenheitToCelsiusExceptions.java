@@ -13,9 +13,11 @@ public class FahrenheitToCelsiusExceptions {
                 fahrenheit = input.nextInt();
                 success = true;
             } catch (InputMismatchException e){
-                input.nextLine();
                 System.out.println("Sorry, that wasn't an int");
                 System.out.println("Please try again");
+            }
+            finally {
+                input.nextLine();
             }
         }
 
