@@ -20,17 +20,16 @@ public class Cat extends Pet {
     }
 
     public int treat() {
-        heal();
+        super.heal();
         if (getMiceCaught() < 4) {
             return (int)Math.ceil((super.getPainLevel() * 2) / super.getHealth());
         }
         else if (getMiceCaught() >= 4 && getMiceCaught() <= 7) {
             return (int)Math.ceil(super.getPainLevel() / super.getHealth());
         }
-        else if (getMiceCaught() > 7) {
+        else {
             return (int)Math.ceil(super.getPainLevel() / (super.getHealth() * 2));
         }
-        return 0;
     }
 
     public void speak() {
