@@ -11,8 +11,8 @@ public class Cat extends Pet {
         this.miceCaught = miceCaught;
     }
 
-    pubic Cat(String name, double health, int painLevel) {
-        super(name, health, painLevel, DEFAULT_MICE_CAUGHT);
+    public Cat(String name, double health, int painLevel) {
+        this(name, health, painLevel, DEFAULT_MICE_CAUGHT);
     }
 
     public int getMiceCaught() {
@@ -24,7 +24,7 @@ public class Cat extends Pet {
         if (getMiceCaught() < 4) {
             return (int)Math.ceil((super.getPainLevel() * 2) / super.getHealth());
         }
-        else if (getMiceCaught() >= 4 && getDroolRate() <= 7) {
+        else if (getMiceCaught() >= 4 && getMiceCaught() <= 7) {
             return (int)Math.ceil(super.getPainLevel() / super.getHealth());
         }
         else if (getMiceCaught() > 7) {
@@ -45,7 +45,7 @@ public class Cat extends Pet {
     public boolean equals(Object o) {
         if (o instanceof Cat) {
             Cat c = (Cat) o;
-            return super.equals(d) && getMiceCaught() == d.getMiceCaught();
+            return super.equals(c) && getMiceCaught() == c.getMiceCaught();
         }
         return false;
     }
